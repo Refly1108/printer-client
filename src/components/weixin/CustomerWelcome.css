@@ -1,0 +1,119 @@
+.welcomeBackground {
+  background-image: url("../../resource/background3.png");
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.welcomeBackground .welcomebgContent {
+  font-size: 14pt;
+  width: 100vw;
+  height: 100vh;
+  color: #1b0460;
+}
+.welcomeBackground .welcomebgContent .wechatId {
+  font-size: 16pt;
+  font-weight: bolder;
+  padding-left: 8vw;
+  padding-top: 15vh;
+}
+.welcomeBackground .welcomebgContent .niceMeet {
+  padding-left: 8vw;
+}
+.welcomeBackground .welcomebgContent .wishRs {
+  font-size: 24pt;
+  font-weight: bolder;
+  padding-left: 8vw;
+  padding-top: 12vh;
+}
+.welcomeBackground .welcomebgContent .Regarding2023 {
+  padding-left: 8vw;
+}
+.welcomeBackground .welcomebgContent .wishButton {
+  box-sizing: border-box;
+  width: 80%;
+  height: 50px;
+  margin-left: 10vw;
+  margin-top: 50vh;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1.5px solid #333333;
+  border-radius: 10px;
+}
+.welcomeBackground .welcomebgContent .testButton {
+  box-sizing: border-box;
+  width: 80%;
+  height: 50px;
+  margin-left: 10vw;
+  margin-top: 5vh;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1.5px solid #333333;
+  border-radius: 10px;
+}
+.welcomeBackground .welcomebgContent .testButton .iWish {
+  position: center;
+  width: 100px;
+  height: 25px;
+  padding-left: 0vw;
+  font-family: 'PingFang SC';
+  font-style: normal;
+  font-weight: 400px;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #0F3A60;
+}
+.welcomeBackground .welcomebgContent .wishButton .iWish {
+  /* 我要许愿 */
+  position: center;
+  width: 100px;
+  height: 25px;
+  padding-left: 0vw;
+  font-family: 'PingFang SC';
+  font-style: normal;
+  font-weight: 400px;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #0F3A60;
+}
+.welcomeBackground .welcomebgContent .groupName {
+  position: absolute;
+  font-size: 10pt;
+  text-align: right;
+  bottom: 5%;
+  right: 5%;
+}
+.welcomeBackground .welcomebgContent .groupName .gnbord {
+  font-weight: bolder;
+}
+
+.welcomeBackground .InputPopWording {
+  box-sizing: border-box;
+  position: absolute;
+  width: 78vw;
+  height: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 11vw;
+  bottom: 55vh;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1.5px solid #333333;
+  border-radius: 8px;
+  color: #FFFFFF;
+}
+.welcomeBackground .InputPopWording .InputPopReminderWording {
+  /* 请输入你的名字和心愿哦 */
+  position: absolute;
+  width: 220px;
+  height: 36px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 36px;
+  /* identical to box height, or 180% */
+  text-align: center;
+  color: #FFFFFF;
+}
