@@ -6,15 +6,17 @@ import base64Img from "base64-img";
 import wishs from "../config/wishs";
 export const printerReceipt = async (data) => {
   console.log(data);
-  const port = 8043;
+  const port = 8080;
   let error = 0;
   const result = await getPrinter(
     data.printerId == 1 ? config.epson.ip : config.epson.ip2,
     port
   );
   if (result.printer) {
-    await printerData(data, result.printer);
+    //await printerData(data, result.printer);
+    await printerDatav2(data, result.printer);
   } else {
+   // await printerDatav2(data, result.printer);
     error = result.error;
   }
 
@@ -50,6 +52,32 @@ export const getPrinter = async (ip, port) => {
   });
 };
 
+export const printerDatav2 = async (data, printer) => {
+  console.log("start print data");
+  console.log(data);
+  let arr = ["中文祝福语Test1", "中文祝福语Test2", "中文祝福语Test13"];
+  let canvasData = await drawImage_v2(getWishArray(data.wish), data.nickname);
+  // printer.addTextAlign(printer.ALIGN_LEFT);
+  // printer.addTextAlign(printer.ALIGN_LEFT);
+  // printer.addTextLineSpace(35);
+  // printer.addTextFont(printer.FONT_D);
+  console.log(canvasData);
+  if (canvasData.context) {
+    printer.addImage(
+      canvasData.context,
+      0,
+      0,
+      600,
+      canvasData.height,
+      printer.COLOR_1,
+      printer.MODE_MONO
+    );
+  }
+  printer.addFeed(1);
+  printer.addCut(printer.CUT_FEED);
+  printer.send();
+};
+
 export const printerData = async (data, printer) => {
   console.log("start print data");
   console.log(data);
@@ -69,8 +97,8 @@ export const printerData = async (data, printer) => {
   printer.addTextLineSpace(35);
   printer.addTextFont(printer.FONT_D);
   //
-
-  console.log(len);
+  
+  console.log('len ='+len+500);
   if (context) {
     printer.addImage(
       context,
@@ -311,7 +339,8 @@ export const drawImage = (arr, name) => {
 export const drawImage_v2 = (arr, name) => {
   return new Promise((resolve, reject) => {
     let image_header = new Image();
-    
+   // let dpr =window.devicePixelRatio;
+    //alert(dpr);
     let canvas;
     let context;
     image_header.src = header_image;
@@ -322,107 +351,111 @@ export const drawImage_v2 = (arr, name) => {
       image_boot.onload = function () {
         if (canvas.getContext) {
           let len = 0;
-          console.log(image_header.width);
-          console.log(image_header.height);
-          canvas.width = image_header.width;
-          canvas.height = image_header.height + 935 + arr.length * 45+wishs.weSay.length*45+image_boot.height;
+
+          console.log("image_header",image_header.width,image_header.height);
+          console.log("image_boot",image_boot.width,image_boot.height);
+          let x=0.8;
+          let y=30;
+          canvas.width = 600;//935
+          let fixLeng =60+45+60+60+45+80+80+95+10+arr.length * 45+45+45+60+95+10+wishs.weSay.length*45+50+80+45;
+          canvas.height = image_header.height +image_boot.height+fixLeng*0.8;//+ 800 + arr.length * 45+wishs.weSay.length*45
           context = canvas.getContext("2d");
           
-          context.drawImage(image_header, 0, 0);
+          context.drawImage(image_header, 50, 0);
           context.beginPath();
         
-          context.font = "400 25px PingFang SC";
+          context.font = "400 25px PingFang HK";
           context.textAlign = "start";
           len = image_header.height;
          
-          len += 60;
-          context.fillText(getDate(), 80, len);
+          len += 60*x;
+          context.fillText(getDate(), 80+y, len);
         
-          len += 45;
-          context.fillText("Guangzhou,China", 80, len);
+          len += 45*x;
+          context.fillText("Guangzhou,China", 80+y, len);
 
-          len += 60
-          context.font = "30px PingFang SC";
-          context.fillText("——————————————", 80, len);
+          len += 60*x
+          context.font = "25px PingFang HK";
+          context.fillText("——————————————", 80+y, len);
 
-          len += 60
+          len += 60*x
           context.font = "700 25px Arial";
-          context.fillText("Hi " + name, 80, len);
+          context.fillText("Hi " + name, 80+y, len);
        
-          len += 45;
+          len += 45*x;
           context.font = "400 25px Arial";
-          context.fillText("Nice to meet you today", 80, len);
+          context.fillText("Nice to meet you today", 80+y, len);
        
         
-          len += 80;
-          context.font = "30px PingFang SC";
+          len += 80*x;
+          context.font = "25px PingFang HK";
           context.textAlign = "center";
           context.fillText("//////////////////////////////////", 295, len);
 
-          len += 80;
+          len += 80*x;
           context.textAlign = "start";
           context.font = "700 25px Arial";
-          context.fillText("You said", 80, len);
+          context.fillText("You said", 80+y, len);
 
-          len += 80;
+          len += 95*x;
           context.font = "80px 黑体";
-          context.fillText("“", 40, len);
+          context.fillText("“", 55/1.41+y, len);
 
-         
-          len += 10;
+          len += 10*x;
           context.font = "400 25px Arial";
           context.textAlign = "center";
           for (let index = 0; index < arr.length; index++) {
             context.fillText(arr[index], 295, len);
-            len += 45;
+            len += 45*x;
           }
 
-          len += 45;
+          len += 45*x;
           context.font = "80px 黑体";
-          context.fillText("”", 510, len);
+          context.fillText("”", 510-y, len);
 
          
-          len += 45     
-          context.font = "30px PingFang SC";
+          len += 45*x     
+          context.font = "25px PingFang HK";
           context.textAlign = "start";    
-          context.fillText("——————————————", 80, len);
+          context.fillText("——————————————", 80+y, len);
 
-          len += 60
+          len += 60*x
           context.textAlign = "start";
           context.font = "700 25px Arial";
-          context.fillText("We said", 80, len);
+          context.fillText("We'll said", 80+y, len);
 
-          len += 80;
+          len += 95*x;
           context.font = "80px 黑体";
-          context.fillText("“", 40, len);
+          context.fillText("“", 40+y, len);
 
          
-          len += 10;
+          len += 10*x;
           context.font = "400 25px Arial";
           context.textAlign = "center";
           for (let index = 0; index < wishs.weSay.length; index++) {
             context.fillText(wishs.weSay[index], 295, len);
-            len += 45;
+            len += 45*x;
           }
 
-          len += 50;
+          len += 50*x;
           context.font = "80px 黑体";
-          context.fillText("”", 510, len);
+          context.fillText("”", 510-y, len);
 
-          len += 80;
-          context.font = "30px PingFang SC";
+          len += 80*x;
+          context.font = "25px PingFang SC";
           context.textAlign = "center";
           context.fillText("//////////////////////////////////", 295, len);
 
-          len += 45;
-          context.fillText("      ", 295, len);
+          len += 45*x;
+          // context.fillText("      ", 295, len);
 
           context.closePath();
 
-          context.drawImage(image_boot, 0, len);
-          console.log(len)   
+          context.drawImage(image_boot, 50, len);
+          console.log(len+image_boot.height)  ;
+          console.log(context)   ;
           let src = canvas.toDataURL("image/png");
-          resolve(src);
+          resolve({context:context,width:canvas.width,height:canvas.height,src:src});
         } else {
           resolve(false);
         }
@@ -434,10 +467,11 @@ export const drawImage_v2 = (arr, name) => {
 };
 
 export const getImg = async (data) => {
+ 
   let src = await drawImage_v2(getWishArray(data.wish), data.nickname);
   // var filepath = await base64Img.imgSync(src,'../resource',data.wishId);
-  // console.log(filepath);
-  return src
+  console.log(src);
+  return src.src;
 }
 
 

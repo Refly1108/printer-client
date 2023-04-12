@@ -5,7 +5,7 @@ import {
   getPrintListFromServer,
   finishWishJobToServer,
 } from "../../fetch/index";
-import { getQueryString } from "../../util/util";
+import { getQueryString ,getRandomWish} from "../../util/util";
 import "./CustomerWelcome.css";
 import config from "../../config/config";
 let started = false;
@@ -102,7 +102,7 @@ export default function PrintJob() {
       wishId: 99,
       printerId: printerId,
       nickname: "壹.零",
-      wish: "春暖花开",
+      wish: getRandomWish(),
       copy: 1,
     });
 
@@ -113,21 +113,21 @@ export default function PrintJob() {
     }
   };
   const testImg = async () => {
-    // let result = await getImg({
-    //   wishId: 99,
-    //   printerId: printerId,
-    //   nickname: "壹.零",
-    //   wish: "春暖花开",
-    //   copy: 1,
-    // });
+    let result = await getImg({
+      wishId: 99,
+      printerId: printerId,
+      nickname: "Refly_YAN",
+      wish: getRandomWish(),
+      copy: 1,
+    });
 
-    let result = await getPrintListFromServer(printerId ? printerId : 1);
+    //let result = await getPrintListFromServer(printerId ? printerId : 1);
     let img;
     if (result.wishId > -1) {
       img = await getImg(result);
       //await finishWishJobToServer(result);
     }
-    console.log(img);
+    //console.log(img);
     setImgUrl(img);
    
   };
@@ -190,7 +190,7 @@ export default function PrintJob() {
             className="wishButton"
             onClick={stopPrint}
           >
-            <span className="iWish">暂停任务</span>
+            <span className="iWish">stop printer job</span>
           </button>
         </div>
 
@@ -199,10 +199,11 @@ export default function PrintJob() {
             variant="contained"
             color="green"
             className="wishButton"
-            // onClick={startPrint}
-            onClick={saveImage}
+            onClick={startPrint}
+            // onClick={saveImage}
           >
-            <span className="iWish">保存为PDF</span>
+            {/* <span className="iWish">保存为PDF</span> */}
+            <span className="iWish">start printer job</span>
           </button>
         </div>
         <div>
@@ -210,9 +211,10 @@ export default function PrintJob() {
             variant="contained"
             color="green"
             className="testButton"
-            onClick={testImg}
+            // onClick={testImg}
+           onClick={testPrinter}
           >
-            <span className="iWish">打印机测试</span>
+            <span className="iWish">printer testing</span>
           </button>
         </div>
         <div style={{ display: displayInputPop ? "block" : "none" }}>

@@ -21,12 +21,12 @@ export const getRandomInt = (min, max) => {
 export const getRandomWish = (min, max) => {
   let lan = getRandomInt(0, 1);
   let wish;
-  if (lan == 1) {
-    wish = wishs.en[getRandomInt(0, 49)];
-  } else {
-    wish = wishs.zh[getRandomInt(0, 49)];
-  }
-
+  // if (lan == 1) {
+  //   wish = wishs.en[getRandomInt(0, 49)];
+  // } else {
+  //   wish = wishs.zh[getRandomInt(0, 49)];
+  // }
+  wish = wishs.en[getRandomInt(0, 34)];
   return wish;
 };
 

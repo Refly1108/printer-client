@@ -7,7 +7,7 @@ const config = {
     getWish: "/service/getWish",
     finishWish: "/service/finishWish?",
   },
-  epson: { ip: "192.168.8.101", ip2: "192.168.8.102" },
+  epson: { ip: "192.168.8.102", ip2: "192.168.8.102" },
   timer:5000,
 };
 
