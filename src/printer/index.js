@@ -355,13 +355,13 @@ export const drawImage_v2 = (arr, name) => {
           console.log("image_header",image_header.width,image_header.height);
           console.log("image_boot",image_boot.width,image_boot.height);
           let x=0.8;
-          let y=30;
+          let y=-20;//30
           canvas.width = 600;//935
-          let fixLeng =60+45+60+60+45+80+80+95+10+arr.length * 45+45+45+60+95+10+wishs.weSay.length*45+50+80+45;
+          let fixLeng =60+45+60+60+45+80+80+100+10+arr.length * 45+45+45+60+100+10+wishs.weSay.length*45+50+80+45;
           canvas.height = image_header.height +image_boot.height+fixLeng*0.8;//+ 800 + arr.length * 45+wishs.weSay.length*45
           context = canvas.getContext("2d");
           
-          context.drawImage(image_header, 50, 0);
+          context.drawImage(image_header, 20+y, 0);
           context.beginPath();
         
           context.font = "400 25px PingFang HK";
@@ -376,7 +376,7 @@ export const drawImage_v2 = (arr, name) => {
 
           len += 60*x
           context.font = "25px PingFang HK";
-          context.fillText("——————————————", 80+y, len);
+          context.fillText("—————————————————", 80+y, len);
 
           len += 60*x
           context.font = "700 25px Arial";
@@ -389,69 +389,70 @@ export const drawImage_v2 = (arr, name) => {
         
           len += 80*x;
           context.font = "25px PingFang HK";
-          context.textAlign = "center";
-          context.fillText("//////////////////////////////////", 295, len);
+          context.textAlign = "start";
+          context.fillText("///////////////////////////////////////////",  80+y, len);
 
           len += 80*x;
           context.textAlign = "start";
           context.font = "700 25px Arial";
           context.fillText("You said", 80+y, len);
 
-          len += 95*x;
+          len += 100*x;
           context.font = "80px 黑体";
           context.fillText("“", 55/1.41+y, len);
 
           len += 10*x;
           context.font = "400 25px Arial";
-          context.textAlign = "center";
+          context.textAlign = "start";
           for (let index = 0; index < arr.length; index++) {
-            context.fillText(arr[index], 295, len);
+            context.fillText(arr[index],  135+y, len);
             len += 45*x;
           }
 
           len += 45*x;
           context.font = "80px 黑体";
-          context.fillText("”", 510-y, len);
+          context.fillText("”",  500+y, len);
 
          
           len += 45*x     
           context.font = "25px PingFang HK";
-          context.textAlign = "start";    
-          context.fillText("——————————————", 80+y, len);
+          context.textAlign = "start";   
+                             
+          context.fillText("—————————————————", 80+y, len);
 
           len += 60*x
           context.textAlign = "start";
           context.font = "700 25px Arial";
-          context.fillText("We'll said", 80+y, len);
+          context.fillText("We'll say", 80+y, len);
 
-          len += 95*x;
+          len += 100*x;
           context.font = "80px 黑体";
           context.fillText("“", 40+y, len);
 
          
           len += 10*x;
           context.font = "400 25px Arial";
-          context.textAlign = "center";
+          context.textAlign = "start";
           for (let index = 0; index < wishs.weSay.length; index++) {
-            context.fillText(wishs.weSay[index], 295, len);
+            context.fillText(wishs.weSay[index], 135+y, len);
             len += 45*x;
           }
 
           len += 50*x;
           context.font = "80px 黑体";
-          context.fillText("”", 510-y, len);
+          context.fillText("”", 500+y, len);
 
           len += 80*x;
           context.font = "25px PingFang SC";
-          context.textAlign = "center";
-          context.fillText("//////////////////////////////////", 295, len);
+          context.textAlign = "start";
+          context.fillText("///////////////////////////////////////////", 80+y, len);
 
           len += 45*x;
           // context.fillText("      ", 295, len);
 
           context.closePath();
 
-          context.drawImage(image_boot, 50, len);
+          context.drawImage(image_boot, 20+y, len);
           console.log(len+image_boot.height)  ;
           console.log(context)   ;
           let src = canvas.toDataURL("image/png");

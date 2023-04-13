@@ -8,6 +8,7 @@ import {
 import { getQueryString ,getRandomWish} from "../../util/util";
 import "./CustomerWelcome.css";
 import config from "../../config/config";
+import wishs from "../../config/wishs";
 let started = false;
 export default function PrintJob() {
   const [printResult, setPrintResult] = useState(0);
@@ -102,7 +103,8 @@ export default function PrintJob() {
       wishId: 99,
       printerId: printerId,
       nickname: "壹.零",
-      wish: getRandomWish(),
+     // wish: getRandomWish(),
+      wish: wishs.en[0],
       copy: 1,
     });
 

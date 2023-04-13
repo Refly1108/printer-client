@@ -1,5 +1,6 @@
 const wishs = {
   en: [
+    //"You could finish reading a book You could finish reading a book You could finish reading a book you12".length,
     "You could finish reading a book.",
     "A new season of your favorite TV show could start and end.",
     "You could make progress on a personal project.",
