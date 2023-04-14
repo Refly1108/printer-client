@@ -175,12 +175,13 @@ export default function PrintJob() {
 
   return (
     <div>
+        
     <div><canvas id="canvas" width="0" height="0" ></canvas></div>
     <div className="welcomeBackground">
      
       <div className="welcomebgContent">
         <div className="wechatId">
-          <span id="postWechatId">任务列表</span>
+      
         </div>
         <div className="niceMeet">{jobList()}</div>
         <div style={{ display: start ? "block" : "none" }}>
@@ -212,7 +213,7 @@ export default function PrintJob() {
             className="testButton"
             onClick={testImg}
           >
-            <span className="iWish">打印机测试</span>
+            <span className="iWish">Login测试</span>
           </button>
         </div>
         <div style={{ display: displayInputPop ? "block" : "none" }}>

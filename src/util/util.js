@@ -201,3 +201,9 @@ export const getDate = () => {
 
 const Months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
+export const generateQRCode=()=>{
+
+  let url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa4065fe099206a50&redirect_uri=http://175.178.13.221/printer/&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
+
+   return url;
+}
