@@ -91,7 +91,7 @@ const wishs = {
     "祝你的人生充满自信、勇气和成就感！",
   ],
 
-   weSay : ['We can turn great ideas','into working products','and put them in the','hands of 600 people'],
+   weSay : ['We can turn great ideas into','working products and put them','in the hands of 600 people'],
    
 };
 export default wishs;

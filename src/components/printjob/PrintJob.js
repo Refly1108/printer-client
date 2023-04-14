@@ -47,7 +47,18 @@ export default function PrintJob() {
     }
     
   };
+const sleep = async (timer)=>{
+  let date = new Date();
+  let date2 = new Date();
+  while (true) {
 
+    date2 = new Date();
+    if (parseInt(date2 - date) > timer) {
+      break;
+    }
+  }
+
+}
   const startJob = async () => {
     console.log("startJob");
     let date = new Date();
@@ -67,6 +78,7 @@ export default function PrintJob() {
               stopPrint();
               break;
             }
+            await sleep(5000);
           }
         }
         //reset date
@@ -99,6 +111,7 @@ export default function PrintJob() {
   };
 
   const testPrinter = async () => {
+   
     let result = await printerReceipt({
       wishId: 99,
       printerId: printerId,

@@ -4,6 +4,15 @@ const config = {
     // finishWish: "http://39.108.114.45/finishWish?",
     getAddress:"/spring/hello/getAddress?",
     getSignature: "/spring/hello/getSignature",
+    getWish: "https://zhiliaodev.htcangelfund.com/service/getWish",
+    finishWish: "https://zhiliaodev.htcangelfund.com/service/finishWish?",
+  },
+
+  url_dev: {
+    // getWish: "http://39.108.114.45/getWish",
+    // finishWish: "http://39.108.114.45/finishWish?",
+    getAddress:"/spring/hello/getAddress?",
+    getSignature: "/spring/hello/getSignature",
     getWish: "/service/getWish",
     finishWish: "/service/finishWish?",
   },
