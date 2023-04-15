@@ -48,6 +48,19 @@ export const getPrintListFromServer = async (printerId) => {
   );
   return result;
 };
+
+export const getWishListFromServer = async (printerId) => {
+  let opts = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  let result = await getPrintListValidation(
+    await fetchRequest(config.url.getWishList+"?printerId="+printerId, opts, true)
+  );
+  return result;
+};
 export const finishWishJobToServer = async (job) => {
   let opts = {
     method: "GET",
