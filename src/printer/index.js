@@ -355,13 +355,13 @@ export const drawImage_v2 = (arr, name) => {
           console.log("image_header",image_header.width,image_header.height);
           console.log("image_boot",image_boot.width,image_boot.height);
           let x=0.8;
-          let y=-20;//30
+          let y=-33;//30
           canvas.width = 600;//935
           let fixLeng =60+45+60+60+45+80+80+100+10+arr.length * 45+45+45+60+100+10+wishs.weSay.length*45+50+80+45;
           canvas.height = image_header.height +image_boot.height+fixLeng*0.8;//+ 800 + arr.length * 45+wishs.weSay.length*45
           context = canvas.getContext("2d");
           
-          context.drawImage(image_header, 20+y, 0);
+          context.drawImage(image_header, 42+y, 0);
           context.beginPath();
         
           context.font = "400 25px PingFang HK";
@@ -375,8 +375,8 @@ export const drawImage_v2 = (arr, name) => {
           context.fillText("Guangzhou,China", 80+y, len);
 
           len += 60*x
-          context.font = "25px PingFang HK";
-          context.fillText("—————————————————", 80+y, len);
+          context.font = "23px PingFang HK";
+          context.fillText("———————————————————", 80+y, len);
 
           len += 60*x
           context.font = "700 25px Arial";
@@ -390,7 +390,7 @@ export const drawImage_v2 = (arr, name) => {
           len += 80*x;
           context.font = "25px PingFang HK";
           context.textAlign = "start";
-          context.fillText("///////////////////////////////////////////",  80+y, len);
+          context.fillText("/////////////////////////////////////////////",  80+y, len);
 
           len += 80*x;
           context.textAlign = "start";
@@ -411,14 +411,14 @@ export const drawImage_v2 = (arr, name) => {
 
           len += 45*x;
           context.font = "80px 黑体";
-          context.fillText("”",  500+y, len);
+          context.fillText("”",  520+y, len);
 
          
           len += 45*x     
-          context.font = "25px PingFang HK";
+          context.font = "23px PingFang HK";
           context.textAlign = "start";   
                              
-          context.fillText("—————————————————", 80+y, len);
+          context.fillText("———————————————————", 80+y, len);
 
           len += 60*x
           context.textAlign = "start";
@@ -440,12 +440,12 @@ export const drawImage_v2 = (arr, name) => {
 
           len += 50*x;
           context.font = "80px 黑体";
-          context.fillText("”", 500+y, len);
+          context.fillText("”", 520+y, len);
 
           len += 80*x;
           context.font = "25px PingFang SC";
           context.textAlign = "start";
-          context.fillText("///////////////////////////////////////////", 80+y, len);
+          context.fillText("/////////////////////////////////////////////", 80+y, len);
 
           len += 45*x;
           // context.fillText("      ", 295, len);
