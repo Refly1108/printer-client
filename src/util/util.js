@@ -106,7 +106,7 @@ export const splitByblack = (str) => {
   let tempStr ='';
   for (let index = 0; index < array.length; index++) {
     // 24->28
-    if((tempStr.length+(array[index]+" ").length)>28){
+    if((tempStr.length+(array[index]+" ").length)>32){
       array2.push(tempStr);
       tempStr ='';
     }
