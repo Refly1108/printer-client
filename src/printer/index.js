@@ -361,7 +361,7 @@ export const drawImage_v2 = (arr, name) => {
           canvas.height = image_header.height +image_boot.height+fixLeng*0.8;//+ 800 + arr.length * 45+wishs.weSay.length*45
           context = canvas.getContext("2d");
           
-          context.drawImage(image_header, 42+y, 0);
+          context.drawImage(image_header, 15+y, 0);
           context.beginPath();
         
           context.font = "400 25px PingFang HK";
