@@ -8,7 +8,6 @@ import {
   getRandomColor,
   getRandomInt,
 } from "../util/util";
-import base64Img from "base64-img";
 import wishs from "../config/wishs";
 
 export const drawImage_v2 = (arr, name) => {
@@ -157,15 +156,7 @@ export const drawImage = async(wishList) => {
   } else {
     console.log("error");
   }
-  // const render = (wishList) => {
-
-  //   context.clearRect(0, 0, canvas.width, canvas.height);
-  //   context.drawImage(backgroundImage, 0, 0);
-  //   // 绘制画布上所有的圆圈圈
-  //   drawWishs();
-  //   // 继续渲染
-  //   requestAnimationFrame(render);
-  // }
+  
   const moveWishs = () => {
     wishList.forEach((element) => {
       element.x -= element.moveSpeed;
@@ -193,9 +184,6 @@ export const drawImage = async(wishList) => {
    // let image = new Image();
    let count =0;
     wishList.forEach((element) => {
-   //   image.src = element.headImgUrl;
-   //console.log(count);
- //  console.log(images[count]);
       context.drawImage(
         images[count],
         element.x,
@@ -231,40 +219,18 @@ export const drawImage = async(wishList) => {
         element.y + 70
       );
       count++;
-      // image.src = element.headImgUrl;
-      //  context.drawImage(image, element.x, element.y, image.width/2, image.height / 2);
-      // image.onload = function () {
-      // //  console.log(element.image);
-      //   context.drawImage(image, element.x, element.y, image.width/2, image.height / 2);
-      //   context.strokeStyle = element.color;
-      //   context.font = "600 20px PingFang SC";
-      //   context.textAlign = "start";
-      //   context.fillStyle = 'rgba(255,255,255,1)';
-      //   context.fillText(element.nickname,image.width/2+10, image.height/2-25);
-      //   context.strokeText(element.nickname,image.width/2+10, image.height/2-25);
-      // }
-
-      //  context.strokeStyle = params.color;
-      //  context.font = 'bold ' + fontSize + 'px "microsoft yahei", sans-serif';
-      // context.fillStyle = 'rgba(255,255,255,1)';
-      // context.fillText(params.value, this.x, this.y);
-      // context.strokeText(params.value, this.x, this.y);
     });
   };
 
   const drawWishs = () => {
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.drawImage(backgroundImage, 0, 0);
-    // 绘制画布上所有的圆圈圈
     moveWishs();
     draw();
-    // 继续渲染
     let wishFram = requestAnimationFrame(drawWishs);
     window.addEventListener("click", () => {
-      // console.log(wishFram)
       if (wishFram) {
         cancelAnimationFrame(wishFram);
-        // wishFram = null;
       }
     });
   };
@@ -294,7 +260,6 @@ export const loadImages = async (wishList) => {
       //  console.log(images[count].src);
         count++
        
-
       });
   });
 };
@@ -313,4 +278,3 @@ export const sleep = async (timer) => {
   }
 };
 
-// 弹幕方法
