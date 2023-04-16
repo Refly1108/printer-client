@@ -199,5 +199,9 @@ export const getDate = () => {
   return `${d} ${Months[m]} ${y}`;
 };
 
+export const getRandomColor = () => {
+ return  Colors[getRandomInt(0, 11)];
+};
 const Months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const Colors = ['Aqua','Blue','Brown','Chartreuse','DarkGreen','DarkMagenta','Gold','LightCoral','MediumBlue','Orange','Purple','YellowGreen'];
 

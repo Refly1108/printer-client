@@ -9,27 +9,37 @@ import {
 import { getQueryString } from "../../util/util";
 import "./CustomerWelcome.css";
 import config from "../../config/config";
+import wishs from "../../config/wishs";
 
 export default function PrintJob() {
  
-  const [printerId, setPrinterId] = useState();
+  const [showCanvas, setShowCanvas] = useState(false);
   const [imgUrl, setImgUrl] = useState("");
 
   const saveImage = () => {
-    if(imgUrl){
+    let canvas = document.getElementById("canvas");
+    var context = canvas.getContext('2d');
+    let url = context.canvas.toDataURL("image/png");
+    if(url){
       let pdf = new jsPDF('p', 'pt', 'a4');
      // new jsPDF('p', 'pt', 'a4');
       let canvas = document.getElementById("canvas");
-      pdf.addImage(imgUrl,"jpg",150, 0, canvas.width/2, canvas.height/2);
+      pdf.addImage(url,"jpg",0, 0, canvas.width/6.2, canvas.height/6.2);
       pdf.save("test.pdf");
     }else{
       console.log("no image");
     }
     
-  };
+  }; 
+  const dishowCanvas = ()=>{
+    
+     setShowCanvas(false)
 
+  } 
   const testImg = async () => {
-    let result = await getWishListFromServer(printerId ? printerId : 1);
+    setShowCanvas(true);
+    //let result = await getWishListFromServer(printerId ? printerId : 1);
+    let result = wishs.wishList;
     let img;
     console.log(result.length)
     if (result.length > 0) {
@@ -42,9 +52,9 @@ export default function PrintJob() {
 
   return (
     <div>
-    <div><canvas id="canvas" width="0" height="0" ></canvas></div>
-    <div className="welcomeBackground">
-     
+    <div className="canvasBackground" onClick={dishowCanvas} style={{ display: showCanvas ? "block" : "none" }}><div><canvas id="canvas" width="0" height="0"  ></canvas></div></div>
+    <div className="welcomeBackground" style={{ display: !showCanvas ? "block" : "none" }}>
+  
       <div className="welcomebgContent">
         <div className="wechatId">
           <span id="postWechatId"></span>
