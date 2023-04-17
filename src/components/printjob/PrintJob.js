@@ -37,16 +37,22 @@ export default function PrintJob() {
 
   } 
   const testImg = async () => {
-    setShowCanvas(true);
-    //let result = await getWishListFromServer(printerId ? printerId : 1);
-    let result = wishs.wishList;
+   
+   
+    let result = await getWishListFromServer( 1);
+    //let result = wishs.wishList;
     let img;
     console.log(result.length)
     if (result.length > 0) {
+      setShowCanvas(true);
       img = await getImg(result);
+      
+    }else{
+      alert("no wish in server");
     }
-   // console.log(img);
     setImgUrl(img);
+   // console.log(img);
+    
   };
  
 
