@@ -177,6 +177,10 @@ export default function PrintJob() {
     <div>
         
     <div><canvas id="canvas" width="0" height="0" ></canvas></div>
+    <div>------------------</div>
+    <div><canvas id="canvas1" width="0" height="0" ></canvas></div>
+    <div>------------------</div>
+    <div><canvas id="canvas2" width="0" height="0" ></canvas></div>
     <div className="welcomeBackground">
      
       <div className="welcomebgContent">

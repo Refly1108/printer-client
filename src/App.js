@@ -7,8 +7,8 @@ import WeixinTest from "./components/weixin/WeixinTest";
 function App() {
   return (
     <div>
-      {/* <PrintJob></PrintJob> */}
-      <WeixinTest></WeixinTest>
+      <PrintJob></PrintJob>
+      {/* <WeixinTest></WeixinTest> */}
     </div>
   );
 }
