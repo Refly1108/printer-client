@@ -376,6 +376,7 @@ export const drawImage_v2 = (arr, name) => {
 
           len += 60*x
           context.font = "23px PingFang HK";
+          context.fillText("———————————————————", 0, len-10);
           context.fillText("———————————————————", 80+y, len);
 
           len += 60*x

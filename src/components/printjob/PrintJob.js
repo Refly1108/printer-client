@@ -226,8 +226,8 @@ const sleep = async (timer)=>{
             variant="contained"
             color="green"
             className="testButton"
-            // onClick={testImg}
-           onClick={testPrinter}
+            onClick={testImg}
+          //  onClick={testPrinter}
           >
             <span className="iWish">printer testing</span>
           </button>
