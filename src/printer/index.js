@@ -355,7 +355,7 @@ export const drawImage_v2 = (arr, name) => {
           console.log("image_header",image_header.width,image_header.height);
           console.log("image_boot",image_boot.width,image_boot.height);
           let x=0.8;
-          let y=-33;//30
+          let y=-33;//30  window.devicePixelRatio  0.5--33  1---20
           canvas.width = 600;//935
           let fixLeng =60+45+60+60+45+80+80+100+10+arr.length * 45+45+45+60+100+10+wishs.weSay.length*45+50+80+45;
           canvas.height = image_header.height +image_boot.height+fixLeng*0.8;//+ 800 + arr.length * 45+wishs.weSay.length*45
