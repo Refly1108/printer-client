@@ -265,6 +265,7 @@ export const loadImages = async (wishList) => {
 };
 export const getImg = async (wishList) => {
   await drawImage(wishList);
+  //await drawImage_v2(getWishArray(wishs.zh[0]),'Test');
   //canvasBarrage(wishs.dataBarrage);
 };
 export const sleep = async (timer) => {

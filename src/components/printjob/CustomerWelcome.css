@@ -57,6 +57,16 @@
   border: 1.5px solid #333333;
   border-radius: 10px;
 }
+.welcomeBackground .welcomebgContent .canvasButton {
+  box-sizing: border-box;
+  width: 80%;
+  height: 50px;
+  margin-left: 10vw;
+  margin-top: 5vh;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1.5px solid #333333;
+  border-radius: 10px;
+}
 .welcomeBackground .welcomebgContent .testButton .iWish {
   position: center;
   width: 100px;
@@ -71,6 +81,21 @@
   color: #0F3A60;
 }
 .welcomeBackground .welcomebgContent .wishButton .iWish {
+  /* 我要许愿 */
+  position: center;
+  width: 100px;
+  height: 25px;
+  padding-left: 0vw;
+  font-family: 'PingFang SC';
+  font-style: normal;
+  font-weight: 400px;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #0F3A60;
+}
+
+.welcomeBackground .welcomebgContent .canvasButton .iWish {
   /* 我要许愿 */
   position: center;
   width: 100px;
